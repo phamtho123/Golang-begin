@@ -10,7 +10,7 @@ import (
 	"github.com/techschool/simplebank/util"
 )
 
-func createRandomAccount(t *testing.T) Accounts {
+func createRandomAccount(t *testing.T) Account {
 	arg := CreateAccountParams{
 		Owner:    util.RandomOwner(),
 		Balance:  util.RandomMoney(),
@@ -71,7 +71,7 @@ func TestDeleteAccount(t *testing.T) {
 	account1 := createRandomAccount(t)
 
 	// Attempt to delete the account
-	_, err := testQueries.DeleteAccount(context.Background(), account1.ID)
+	err := testQueries.DeleteAccount(context.Background(), account1.ID)
 	require.NoError(t, err)
 
 	// Attempt to retrieve the deleted account
