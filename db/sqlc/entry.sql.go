@@ -7,7 +7,6 @@ package db
 
 import (
 	"context"
-	_ "database/sql"
 )
 
 const createEntry = `-- name: CreateEntry :one

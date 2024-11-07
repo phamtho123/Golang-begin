@@ -85,7 +85,7 @@ func TestTransferTx(t *testing.T) {
 		// check account's balance
 		diff1 := account1.Balance - fromAccount.Balance
 		diff2 := account2.Balance - toAccount.Balance
-		require.Equal(t, diff1, diff2)
+		require.Equal(t, diff1, -diff2)
 		require.True(t, diff1 > 0)
 		require.True(t, diff2%amount == 0) // 1 * amount, 2 * amount, 3 * amount, ... n * amount
 
