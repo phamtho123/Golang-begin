@@ -54,6 +54,13 @@ Before setting up the project, make sure you have the following installed:
    docker exec -it postgres12 psql -U root -d simple_bank
    ```
 
+6. **Gin**
+
+   Restfull api
+   ```bash
+   go get -u github.com/gin-gonic/gin
+   ```
+
 ## Usage
 
 Once the dependencies are installed, you can start writing Go code that interacts with your PostgreSQL database using the `sqlc` tool to generate type-safe SQL code.
