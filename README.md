@@ -61,6 +61,20 @@ Before setting up the project, make sure you have the following installed:
    go get -u github.com/gin-gonic/gin
    ```
 
+7. **Viper**
+
+   Load config and env
+   ```bash
+   go get github.com/spf13/viper
+   ```
+
+7. **Mock**
+
+   Mock testing
+   ```bash
+   go get github.com/golang/mock/mockgen@v1.6.0
+   ```
+   
 ## Usage
 
 Once the dependencies are installed, you can start writing Go code that interacts with your PostgreSQL database using the `sqlc` tool to generate type-safe SQL code.
