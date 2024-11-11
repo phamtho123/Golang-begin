@@ -68,11 +68,15 @@ Before setting up the project, make sure you have the following installed:
    go get github.com/spf13/viper
    ```
 
-7. **Mock**
+8. **Mock**
 
    Mock testing
    ```bash
-   go get github.com/golang/mock/mockgen@v1.6.0
+   go install github.com/golang/mock/mockgen@v1.6.0
+   ```
+   Render store
+   ```bash
+   mockgen -destination db/mock/store.go github.com/techschool/simplebank/db/sqlc Store
    ```
    
 ## Usage
