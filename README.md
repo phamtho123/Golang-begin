@@ -53,6 +53,10 @@ Before setting up the project, make sure you have the following installed:
    ```bash
    docker exec -it postgres12 psql -U root -d simple_bank
    ```
+   create new migrate
+   ```bash
+   migrate create -ext sql -dir db/migration -seq add_users
+   ```
 
 6. **Gin**
 
