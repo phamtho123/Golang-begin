@@ -82,6 +82,22 @@ Before setting up the project, make sure you have the following installed:
    ```bash
    mockgen -destination db/mock/store.go github.com/techschool/simplebank/db/sqlc Store
    ```
+
+9. **Token JWT**
+
+   Install uuid by go
+   ```bash
+   go get github.com/google/uuid
+   ```
+   Install jwt
+   ```bash
+   go get github.com/dgrijalva/jwt-go
+   ```
+   Install paseto
+    ```bash
+   go get github.com/o1egl/paseto
+      ```
+
    
 ## Usage
 
