@@ -107,22 +107,18 @@ Before setting up the project, make sure you have the following installed:
    ```bash
    sudo docker images
    ```
-
    delete image
     ```bash
     sudo rmi <id image> 
       ```
-   
    run docker images
     ```bash
     sudo docker run --name simplebank -p 8080:8080 simplebank:latest
     ```
-   
    run docker images
     ```bash
     sudo docker run --name simplebank -p 8080:8080 -e GIN_MODE=release simplebank:latest
     ```
-   
    run docker images
     ```bash
     sudo docker run --name simplebank -p 8080:8080 -e GIN_MODE=release
