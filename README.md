@@ -98,7 +98,73 @@ Before setting up the project, make sure you have the following installed:
    go get github.com/o1egl/paseto
       ```
 
-   
+10. **Docker**
+
+   Build image
+   ```bash
+   sudo docker build -t simplebank:latest .
+   ```
+   check images
+   ```bash
+   sudo docker images
+   ```
+   delete image
+    ```bash
+    sudo rmi <id image> 
+      ```
+   run docker images
+    ```bash
+    sudo docker run --name simplebank -p 8080:8080 simplebank:latest
+      ```
+   run docker images
+    ```bash
+    sudo docker run --name simplebank -p 8080:8080 -e GIN_MODE=release simplebank:latest
+      ```
+   run docker images
+    ```bash
+    sudo docker run --name simplebank -p 8080:8080 -e GIN_MODE=release
+    -e DB_SOURCE="postgresql://root:root@172.17.0.2:5432/simple_bank?sslmode=disable"
+    simplebank:latest
+      ```
+   run docker images
+    ```bash
+    sudo docker run --name simplebank --network bank-network -p 8080:8080 -e GIN_MODE=release
+    -e DB_SOURCE="postgresql://root:root@postgres12:5432/simple_bank?sslmode=disable"
+    simplebank:latest
+      ```
+   check all container
+    ```bash
+    sudo docker ps -a
+    ```
+   delete container
+    ```bash
+    sudo docker rm <name container>
+    ```
+   check info container
+    ```bash
+    sudo docker container inspect postgres12
+    ```
+   list network docker 
+    ```bash
+    sudo docker network ls
+    ```
+   inspect network
+    ```bash
+    sudo docker network inspect bridge
+    sudo docker container inspect postgres12
+    ```
+   create network
+    ```bash
+    sudo docker network create <name-network>
+    ```
+   help connect to network
+    ```bash
+    sudo docker network connect --help
+    ```
+   connect to bank-network
+    ```bash
+    sudo docker network connect bank-network postgres12
+    ```
 ## Usage
 
 Once the dependencies are installed, you can start writing Go code that interacts with your PostgreSQL database using the `sqlc` tool to generate type-safe SQL code.
