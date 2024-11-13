@@ -203,6 +203,11 @@ Before setting up the project, make sure you have the following installed:
     sudo docker network connect bank-network postgres12
     ```
 
+11. **Assign permission**
+
+    ```bash
+    chmod +x wait-for.sh
+    ```
 ## Usage
 
 Once the dependencies are installed, you can start writing Go code that interacts with your PostgreSQL database using the `sqlc` tool to generate type-safe SQL code.
