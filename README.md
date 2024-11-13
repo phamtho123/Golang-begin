@@ -99,6 +99,7 @@ Before setting up the project, make sure you have the following installed:
       ```
 
 10. **Docker**
+    
    Build image
    ```bash
    sudo docker build -t simplebank:latest .
