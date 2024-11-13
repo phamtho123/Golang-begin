@@ -37,143 +37,174 @@ Before setting up the project, make sure you have the following installed:
     - `go get`: A Go command used to download and install the specified package.
     - `github.com/lib/pq`: The PostgreSQL driver package.
 
-3. **Clear**
+3. **Clear Dependencies**
+
+   Clean up unused dependencies:
+
    ```bash
    go mod tidy
    ```
 
-4. **Test**
+4. **Install Testing Framework**
+
+   Install the `stretchr/testify` package for unit testing:
+
    ```bash
    go get github.com/stretchr/testify
    ```
 
-5. **DB**
+5. **Database**
 
-   Exec to terminal DB
+   Access the database terminal:
+
    ```bash
    docker exec -it postgres12 psql -U root -d simple_bank
    ```
-   create new migrate
+
+   Create a new migration:
+
    ```bash
    migrate create -ext sql -dir db/migration -seq add_users
    ```
 
 6. **Gin**
 
-   Restfull api
+   Install Gin for building RESTful APIs:
+
    ```bash
    go get -u github.com/gin-gonic/gin
    ```
 
 7. **Viper**
 
-   Load config and env
+   Install Viper for loading configuration and environment variables:
+
    ```bash
    go get github.com/spf13/viper
    ```
 
 8. **Mock**
 
-   Mock testing
+   Install mockgen for mock testing:
+
    ```bash
    go install github.com/golang/mock/mockgen@v1.6.0
    ```
-   Render store
+
+   Generate mock store:
+
    ```bash
    mockgen -destination db/mock/store.go github.com/techschool/simplebank/db/sqlc Store
    ```
 
-9. **Token JWT**
+9. **JWT and UUID Libraries**
 
-   Install uuid by go
+   Install UUID for unique identifiers:
+
    ```bash
    go get github.com/google/uuid
    ```
-   Install jwt
+
+   Install JWT for token management:
+
    ```bash
    go get github.com/dgrijalva/jwt-go
    ```
-   Install paseto
-    ```bash
+
+   Install Paseto:
+
+   ```bash
    go get github.com/o1egl/paseto
-      ```
+   ```
 
 10. **Docker**
+
+    Build the Docker image:
     
-   Build image
-   ```bash
-   sudo docker build -t simplebank:latest .
-   ```
-   check images
-   ```bash
-   sudo docker images
-   ```
-   delete image
     ```bash
-    sudo rmi <id image> 
-      ```
-   run docker images
+    sudo docker build -t simplebank:latest .
+    ```
+    
+    Check Docker images:
+    
+    ```bash
+    sudo docker images
+    ```
+    
+    Delete a Docker image:
+    
+    ```bash
+    sudo docker rmi <image-id>
+    ```
+    
+    Run the Docker image:
+    
     ```bash
     sudo docker run --name simplebank -p 8080:8080 simplebank:latest
     ```
-   run docker images
+    
+    Run the Docker image with production mode:
+    
     ```bash
     sudo docker run --name simplebank -p 8080:8080 -e GIN_MODE=release simplebank:latest
     ```
-   run docker images
+    
+    Run Docker with database source configuration:
+    
     ```bash
-    sudo docker run --name simplebank -p 8080:8080 -e GIN_MODE=release
-    -e DB_SOURCE="postgresql://root:root@172.17.0.2:5432/simple_bank?sslmode=disable"
-    simplebank:latest
+    sudo docker run --name simplebank -p 8080:8080 -e GIN_MODE=release    -e DB_SOURCE="postgresql://root:root@172.17.0.2:5432/simple_bank?sslmode=disable"    simplebank:latest
     ```
-   
-   run docker images
+    
+    Run Docker with custom network:
+    
     ```bash
-    sudo docker run --name simplebank --network bank-network -p 8080:8080 -e GIN_MODE=release
-    -e DB_SOURCE="postgresql://root:root@postgres12:5432/simple_bank?sslmode=disable"
-    simplebank:latest
+    sudo docker run --name simplebank --network bank-network -p 8080:8080 -e GIN_MODE=release    -e DB_SOURCE="postgresql://root:root@postgres12:5432/simple_bank?sslmode=disable"    simplebank:latest
     ```
-   
-   check all container
+    
+    Check all containers:
+    
     ```bash
     sudo docker ps -a
     ```
-   
-   delete container
+    
+    Delete a container:
+    
     ```bash
-    sudo docker rm <name container>
+    sudo docker rm <container-name>
     ```
-   
-   check info container
+    
+    Inspect container info:
+    
     ```bash
     sudo docker container inspect postgres12
     ```
-   
-   list network docker 
+    
+    List Docker networks:
+    
     ```bash
     sudo docker network ls
     ```
-   
-   inspect network
+    
+    Inspect a Docker network:
+    
     ```bash
     sudo docker network inspect bridge
-    sudo docker container inspect postgres12
     ```
-   
-   create network
+    
+    Create a Docker network:
+    
     ```bash
-    sudo docker network create <name-network>
+    sudo docker network create <network-name>
     ```
-   
-   help connect to network
-    ```bash
-    sudo docker network connect --help
-    ```
-   
-   connect to bank-network
+    
+    Connect a container to a network:
+    
     ```bash
     sudo docker network connect bank-network postgres12
     ```
+
 ## Usage
 
 Once the dependencies are installed, you can start writing Go code that interacts with your PostgreSQL database using the `sqlc` tool to generate type-safe SQL code.
+
+---
