@@ -99,7 +99,6 @@ Before setting up the project, make sure you have the following installed:
       ```
 
 10. **Docker**
-
    Build image
    ```bash
    sudo docker build -t simplebank:latest .
@@ -132,35 +131,43 @@ Before setting up the project, make sure you have the following installed:
     -e DB_SOURCE="postgresql://root:root@postgres12:5432/simple_bank?sslmode=disable"
     simplebank:latest
       ```
+   
    check all container
     ```bash
     sudo docker ps -a
     ```
+   
    delete container
     ```bash
     sudo docker rm <name container>
     ```
+   
    check info container
     ```bash
     sudo docker container inspect postgres12
     ```
+   
    list network docker 
     ```bash
     sudo docker network ls
     ```
+   
    inspect network
     ```bash
     sudo docker network inspect bridge
     sudo docker container inspect postgres12
     ```
+   
    create network
     ```bash
     sudo docker network create <name-network>
     ```
+   
    help connect to network
     ```bash
     sudo docker network connect --help
     ```
+   
    connect to bank-network
     ```bash
     sudo docker network connect bank-network postgres12
