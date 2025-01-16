@@ -9,8 +9,13 @@ Before setting up the project, make sure you have the following installed:
 - **Snap** (for installing sqlc)
 
 ## Steps to Set Up
+1.1 **Install migrate**
 
-1. **Install SQLC**
+   ```bash
+   brew install golang-migrate
+   ```
+
+1.2  **Install SQLC**
 
    SQLC is a tool that generates Go code from SQL queries. It simplifies the integration between Go and SQL, allowing you to write type-safe SQL code in Go.
 
