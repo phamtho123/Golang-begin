@@ -213,6 +213,23 @@ Before setting up the project, make sure you have the following installed:
     ```bash
     chmod +x wait-for.sh
     ```
+    
+12. **Random string**
+
+    ```bash
+    openssl rand -hex 64 | head -c 32
+    ```
+
+13. **AWS**
+
+    ```bash
+    which aws
+    aws --version
+    aws configure
+    ls -l ~/.aws
+    cat ~/.aws/credentials
+    aws secretsmanager get-secret-value --secret-id arn
+    ```
 ## Usage
 
 Once the dependencies are installed, you can start writing Go code that interacts with your PostgreSQL database using the `sqlc` tool to generate type-safe SQL code.
