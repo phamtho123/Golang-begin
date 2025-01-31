@@ -23,6 +23,7 @@ Before setting up the project, make sure you have the following installed:
 
    ```bash
    sudo snap install sqlc
+   brew install sqlc
    ```
 
     - `snap`: A package management system for installing applications.
@@ -230,6 +231,16 @@ Before setting up the project, make sure you have the following installed:
     cat ~/.aws/credentials
     aws secretsmanager get-secret-value --secret-id arn
     ```
+
+14. **DBdocs**
+
+    ```bash
+    npm install -g dbdocs
+    dbdocs build doc/db.dbml
+    dbdocs password --set root --project simple_bank
+    ```
+    
+    
 ## Usage
 
 Once the dependencies are installed, you can start writing Go code that interacts with your PostgreSQL database using the `sqlc` tool to generate type-safe SQL code.
