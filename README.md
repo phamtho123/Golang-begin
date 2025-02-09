@@ -239,7 +239,67 @@ Before setting up the project, make sure you have the following installed:
     dbdocs build doc/db.dbml
     dbdocs password --set root --project simple_bank
     ```
+
+15. **gRPC**
+
+    ```bash
+    brew install protobuf
+    protoc --version
+    ```
+
+    Install the protocol compiler plugins for Go using the following commands:
+    ```bash
+    go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28
+    protoc-gen-go --version
+    go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2
+    protoc-gen-go-grpc --version
+    ```
+
+    Evans for macOS
+    ```bash
+    brew tap ktr0731/evans
+    brew install evans
+    evans --host localhost --port 9090 -r
+    package pb
+    service SimpleBank
+    ```
     
+    Use grpcurl
+    ```bash
+    grpcurl -plaintext localhost:9090 list
+    grpcurl -plaintext localhost:9090 describe pb.SimpleBank
+    ```
+
+16. **gRPC-gateway**
+
+    Gateway
+    ```bash
+    https://github.com/grpc-ecosystem/grpc-gateway
+    go install \
+    github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway \
+    github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2 \
+    google.golang.org/protobuf/cmd/protoc-gen-go \
+    google.golang.org/grpc/cmd/protoc-gen-go-grpc
+    ```
+    
+    Googleapis
+    ```
+    https://github.com/googleapis/googleapis.git
+    ```
+
+    If you are using protoc to generate stubs, you need to ensure the required dependencies are available to the compiler at compile time.
+    ```
+　　google/api/annotations.proto
+    google/api/field_behavior.proto 
+    google/api/http.proto
+    google/api/httpbody.proto
+    ```
+
+    Embed static front-end files inside Golang backend server's binary
+    ```
+    github.com/rakyll/statik
+    ```
+
     
 ## Usage
 
